@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="BorrowBack helps students remember what they have lent."
+    >
+
+    <title>BorrowBack — Never Forget What You Lent</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="brand">
+
+        <div
+            class="logo"
+            aria-hidden="true"
+        >
+            B
+        </div>
+
+        <div>
+            <h1>BorrowBack</h1>
+
+            <p>
+                Never forget what you lent.
+            </p>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                No account required
+            </span>
+
+            <h2>
+                Remember what you
+                <span>lent.</span>
+            </h2>
+
+            <p>
+                Keep track of calculators, chargers,
+                books, notes and everything else
+                that mysteriously disappears into
+                your friends' bags.
+            </p>
+
+        </div>
+
+        <button
+            id="addButton"
+            class="primary-button"
+        >
+            <span>+</span>
+            Lend something
+        </button>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section
+        class="stats"
+        aria-label="Loan statistics"
+    >
+
+        <div class="stat-card">
+
+            <span>
+                Currently lent
+            </span>
+
+            <strong id="lentCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Overdue
+            </span>
+
+            <strong id="overdueCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                Returned
+            </span>
+
+            <strong id="returnedCount">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH + FILTER -->
+
+    <section class="toolbar">
+
+        <div class="search-wrapper">
+
+            <span aria-hidden="true">
+                🔎
+            </span>
+
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search your items..."
+                aria-label="Search your items"
+            >
+
+        </div>
+
+
+        <select
+            id="filterSelect"
+            aria-label="Filter items"
+        >
+
+            <option value="all">
+                All items
+            </option>
+
+            <option value="lent">
+                Currently lent
+            </option>
+
+            <option value="overdue">
+                Overdue
+            </option>
+
+            <option value="returned">
+                Returned
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- LOAN LIST -->
+
+    <section>
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    YOUR STUFF
+                </span>
+
+                <h2>
+                    Lending history
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="loanList"
+            class="loan-list"
+        >
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ADD LOAN DIALOG -->
+
+<dialog id="loanDialog">
+
+    <form id="loanForm">
+
+        <div class="dialog-header">
+
+            <div>
+
+                <span class="badge">
+                    New item
+                </span>
+
+                <h2>
+                    Lend something
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeDialog"
+                class="close-button"
+                aria-label="Close dialog"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <label>
+
+            What did you lend?
+
+            <input
+                id="itemName"
+                type="text"
+                required
+                maxlength="80"
+                placeholder="e.g. Calculator"
+            >
+
+        </label>
+
+
+        <label>
+
+            Who has it?
+
+            <input
+                id="personName"
+                type="text"
+                required
+                maxlength="80"
+                placeholder="e.g. Rahul"
+            >
+
+        </label>
+
+
+        <label>
+
+            Expected return date
+
+            <input
+                id="returnDate"
+                type="date"
+            >
+
+        </label>
+
+
+        <label>
+
+            Note
+
+            <textarea
+                id="note"
+                maxlength="200"
+                placeholder="Optional note"
+            ></textarea>
+
+        </label>
+
+
+        <button
+            type="submit"
+            class="primary-button full"
+        >
+            Save item
+        </button>
+
+    </form>
+
+</dialog>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<script src="/app.js"></script>
+
+</body>
+
+</html>
